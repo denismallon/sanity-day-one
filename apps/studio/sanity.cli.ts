@@ -1,10 +1,12 @@
 import {defineCliConfig} from 'sanity/cli'
 
-export default defineCliConfig({
+export default defineCliConfig(
+{
   api: {
     projectId: 'fs4f9eqj',
     dataset: 'production'
   },
+
   deployment: {
     /**
      * Enable auto-updates for studios.
@@ -12,4 +14,15 @@ export default defineCliConfig({
      */
     autoUpdates: true,
   },
+
+  server: {
+    port: 3334
+  },
+
+  typegen: {
+      enabled: true,
+      path: '../web/src/**/*.{ts,tsx,js,jsx}',
+      schema: './schema.json',
+      generates: './web/src/sanity/types.ts'
+  }
 })
